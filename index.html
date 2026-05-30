@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário Pré-Consulta | Dra. Maira Vilela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#7D5A2F;
+  --brand-light:#f5efe6;
+  --brand-mid:#c9a97a;
+  --text:#1a1a18;
+  --text2:#6b6b66;
+  --text3:#9b9b96;
+  --bg:#ffffff;
+  --bg2:#f8f6f2;
+  --border:rgba(0,0,0,0.1);
+  --border2:rgba(0,0,0,0.18);
+  --r:8px;
+  --rlg:12px;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);min-height:100vh;padding:0 0 4rem}
+.page-header{background:var(--brand);padding:2rem 1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.75rem}
+.page-header img{height:90px;width:auto}
+.page-header h1{font-family:'Cormorant Garamond',serif;color:rgba(255,255,255,0.95);font-size:22px;font-weight:500;letter-spacing:0.05em}
+.page-header p{font-size:12px;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;font-weight:300}
+.form-container{max-width:620px;margin:2rem auto 0;padding:0 1rem}
+.intro-box{background:#fff;border:0.5px solid var(--border);border-radius:var(--rlg);padding:1.25rem 1.5rem;margin-bottom:2rem;font-size:14px;color:var(--text2);line-height:1.7}
+.intro-box strong{color:var(--text);font-weight:500}
+.intro-meta{display:flex;gap:1.5rem;margin-top:0.75rem;font-size:13px;color:var(--text3)}
+.section-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--brand);margin:2rem 0 1rem;padding-bottom:0.4rem;border-bottom:1px solid var(--brand-mid)}
+.field{margin-bottom:1.25rem}
+.field label.flabel{display:block;font-size:14px;font-weight:500;color:var(--text);margin-bottom:6px}
+.req{color:#a03020}
+.field input[type=text],
+.field input[type=date],
+.field input[type=tel],
+.field select,
+.field textarea{width:100%;font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 12px;border:0.5px solid var(--border2);border-radius:var(--r);background:var(--bg);color:var(--text);outline:none;transition:border-color 0.15s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--brand)}
+.field textarea{min-height:80px;resize:vertical}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.check-item{display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--text);cursor:pointer;padding:9px 11px;border:0.5px solid var(--border);border-radius:var(--r);transition:background 0.12s;background:#fff;line-height:1.4}
+.check-item:hover{background:var(--brand-light)}
+.check-item input{margin-top:2px;flex-shrink:0;accent-color:var(--brand)}
+.radio-group{display:flex;flex-direction:column;gap:8px}
+.radio-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.radio-item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text);cursor:pointer;padding:9px 12px;border:0.5px solid var(--border);border-radius:var(--r);transition:background 0.12s;background:#fff}
+.radio-item:hover{background:var(--brand-light)}
+.radio-item input{accent-color:var(--brand);flex-shrink:0}
+.consent-box{background:var(--brand-light);border-radius:var(--rlg);padding:1.25rem 1.5rem;font-size:13px;color:var(--text2);line-height:1.7;margin:1.5rem 0 1rem;border:0.5px solid var(--brand-mid)}
+.consent-box strong{color:var(--brand);font-weight:500}
+.submit-btn{width:100%;padding:14px;background:var(--brand);color:#fff;border:none;border-radius:var(--rlg);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;letter-spacing:0.04em;transition:opacity 0.2s;margin-top:0.5rem}
+.submit-btn:hover{opacity:0.88}
+@media(max-width:480px){
+  .two-col,.check-grid,.radio-row{grid-template-columns:1fr}
+  .page-header img{height:70px}
+  .page-header h1{font-size:18px}
+}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <img src="data:image/png;base64,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" alt="Dra. Maira Vilela — Cirurgia Vascular">
+  <h1>Dra. Maira Vilela</h1>
+  <p>Cirurgia Vascular · Varizes · Lipedema</p>
+</header>
+
+<div class="form-container">
+
+  <div class="intro-box">
+    <strong>Olá! Antes da sua consulta, pedimos que preencha este formulário.</strong><br>
+    Essas informações ajudam a Dra. Maira a entender melhor seu histórico e oferecer um atendimento mais completo e personalizado.
+    <div class="intro-meta">
+      <span>⏱ Tempo estimado: 5 minutos</span>
+      <span>🔒 Protegido pela LGPD</span>
+    </div>
+  </div>
+
+  <div class="section-label">Identificação</div>
+
+  <div class="two-col">
+    <div class="field">
+      <label class="flabel">Nome <span class="req">*</span></label>
+      <input type="text" placeholder="Seu nome">
+    </div>
+    <div class="field">
+      <label class="flabel">Sobrenome <span class="req">*</span></label>
+      <input type="text" placeholder="Seu sobrenome">
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="field">
+      <label class="flabel">Data de nascimento <span class="req">*</span></label>
+      <input type="date">
+    </div>
+    <div class="field">
+      <label class="flabel">Telefone / WhatsApp <span class="req">*</span></label>
+      <input type="tel" placeholder="(00) 00000-0000">
+    </div>
+  </div>
+  <div class="field">
+    <label class="flabel">Sexo biológico <span class="req">*</span></label>
+    <div class="radio-row">
+      <label class="radio-item"><input type="radio" name="sexo"> Feminino</label>
+      <label class="radio-item"><input type="radio" name="sexo"> Masculino</label>
+    </div>
+  </div>
+
+  <div class="section-label">Queixa principal</div>
+
+  <div class="field">
+    <label class="flabel">O que motivou sua consulta? <span class="req">*</span></label>
+    <div class="radio-group">
+      <label class="radio-item"><input type="radio" name="queixa"> Varizes / veias aparentes nas pernas</label>
+      <label class="radio-item"><input type="radio" name="queixa"> Inchaço, peso ou dor nas pernas</label>
+      <label class="radio-item"><input type="radio" name="queixa"> Suspeita de lipedema</label>
+      <label class="radio-item"><input type="radio" name="queixa"> Úlcera ou ferida na perna</label>
+      <label class="radio-item"><input type="radio" name="queixa"> Check-up vascular / prevenção</label>
+      <label class="radio-item"><input type="radio" name="queixa"> Outro (especifique abaixo)</label>
+    </div>
+  </div>
+  <div class="field">
+    <label class="flabel">Descreva seus sintomas com mais detalhes</label>
+    <textarea placeholder="Ex.: sinto dor e inchaço ao final do dia, especialmente no lado esquerdo..."></textarea>
+  </div>
+
+  <div class="section-label">Histórico vascular</div>
+
+  <div class="field">
+    <label class="flabel">Já realizou algum tratamento de varizes anteriormente?</label>
+    <div class="radio-row">
+      <label class="radio-item"><input type="radio" name="trat_varizes"> Sim</label>
+      <label class="radio-item"><input type="radio" name="trat_varizes"> Não</label>
+    </div>
+  </div>
+  <div class="field">
+    <label class="flabel">Se sim, qual(is) tratamento(s)?</label>
+    <div class="check-grid">
+      <label class="check-item"><input type="checkbox"> Escleroterapia (aplicação)</label>
+      <label class="check-item"><input type="checkbox"> Cirurgia (safenectomia)</label>
+      <label class="check-item"><input type="checkbox"> Laser endovenoso</label>
+      <label class="check-item"><input type="checkbox"> Radiofrequência</label>
+      <label class="check-item"><input type="checkbox"> Laser transdérmico</label>
+      <label class="check-item"><input type="checkbox"> Outro</label>
+    </div>
+  </div>
+  <div class="field">
+    <label class="flabel">Tem histórico familiar de varizes ou doenças vasculares?</label>
+    <div class="radio-row">
+      <label class="radio-item"><input type="radio" name="hist_fam"> Sim</label>
+      <label class="radio-item"><input type="radio" name="hist_fam"> Não</label>
+    </div>
+  </div>
+  <div class="field">
+    <label class="flabel">Já teve trombose venosa profunda (TVP) ou embolia pulmonar?</label>
+    <div class="radio-row">
+      <label class="radio-item"><input type="radio" name="tvp"> Sim</label>
+      <label class="radio-item"><input type="radio" name="tvp"> Não</label>
+    </div>
+  </div>
+
+  <div class="section-label">Lipedema</div>
+
+  <div class="field">
+    <label class="flabel">Você suspeita ou já recebeu diagnóstico de lipedema?</label>
+    <div class="radio-group">
+      <label class="radio-item"><input type="radio" name="lipedema"> Sim, tenho diagnóstico</label>
+      <label class="radio-item"><input type="radio" name="lipedema"> Tenho suspeita, mas sem diagnóstico</label>
+      <label class="radio-item"><input type="radio" name="lipedema"> Não</label>
+    </div>
+  </div>
+  <div class="field">
+    <label class="flabel">Quais sintomas você apresenta? (marque os que se aplicam)</label>
+    <div class="check-grid">
+      <label class="check-item"><input type="checkbox"> Acúmulo desproporcional de gordura nas pernas</label>
+      <label class="check-item"><input type="checkbox"> Dor ou sensibilidade ao toque nas pernas</label>
+      <label class="check-item"><input type="checkbox"> Hematomas com facilidade</label>
+      <label class="check-item"><input type="checkbox"> Inchaço que não melhora com elevação</label>
+      <label class="check-item"><input type="checkbox"> Sensação de peso / cansaço nas pernas</label>
+      <label class="check-item"><input type="checkbox"> Dieta e exercício sem resultado nas pernas</label>
+    </div>
+  </div>
+
+  <div class="section-label">Saúde geral</div>
+
+  <div class="field">
+    <label class="flabel">Possui alguma dessas condições?</label>
+    <div class="check-grid">
+      <label class="check-item"><input type="checkbox"> Hipertensão (pressão alta)</label>
+      <label class="check-item"><input type="checkbox"> Diabetes</label>
+      <label class="check-item"><input type="checkbox"> Colesterol alto</label>
+      <label class="check-item"><input type="checkbox"> Obesidade / sobrepeso</label>
+      <label class="check-item"><input type="checkbox"> Distúrbios hormonais</label>
+      <label class="check-item"><input type="checkbox"> Problemas de tireoide</label>
+      <label class="check-item"><input type="checkbox"> Doença cardíaca</label>
+      <label class="check-item"><input type="checkbox"> Outro</label>
+    </div>
+  </div>
+  <div class="field">
+    <label class="flabel">Faz uso de medicação contínua? Se sim, liste abaixo.</label>
+    <textarea placeholder="Ex.: losartana 50mg, metformina 500mg..."></textarea>
+  </div>
+  <div class="field">
+    <label class="flabel">Tem alguma alergia a medicamentos ou látex?</label>
+    <textarea placeholder="Ex.: alérgica a dipirona..."></textarea>
+  </div>
+  <div class="field">
+    <label class="flabel">Faz uso de anticoagulantes ou antiagregantes plaquetários?</label>
+    <div class="radio-row">
+      <label class="radio-item"><input type="radio" name="anticoag"> Sim</label>
+      <label class="radio-item"><input type="radio" name="anticoag"> Não</label>
+    </div>
+  </div>
+  <div class="field">
+    <label class="flabel">Faz uso de anticoncepcionais hormonais ou reposição hormonal?</label>
+    <div class="radio-row">
+      <label class="radio-item"><input type="radio" name="hormonio"> Sim</label>
+      <label class="radio-item"><input type="radio" name="hormonio"> Não</label>
+    </div>
+  </div>
+
+  <div class="section-label">Estilo de vida</div>
+
+  <div class="field">
+    <label class="flabel">Pratica atividade física?</label>
+    <div class="radio-group">
+      <label class="radio-item"><input type="radio" name="atividade"> 3 vezes ou mais na semana</label>
+      <label class="radio-item"><input type="radio" name="atividade"> 1 a 2 vezes na semana</label>
+      <label class="radio-item"><input type="radio" name="atividade"> Raramente</label>
+      <label class="radio-item"><input type="radio" name="atividade"> Não pratico</label>
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="field">
+      <label class="flabel">Fuma ou já fumou?</label>
+      <div class="radio-row">
+        <label class="radio-item"><input type="radio" name="tabaco"> Sim</label>
+        <label class="radio-item"><input type="radio" name="tabaco"> Não</label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="flabel">Consome bebidas alcoólicas?</label>
+      <div class="radio-row">
+        <label class="radio-item"><input type="radio" name="alcool"> Sim</label>
+        <label class="radio-item"><input type="radio" name="alcool"> Não</label>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label class="flabel">Sua profissão exige ficar muito tempo em pé ou sentado(a)?</label>
+    <div class="radio-group">
+      <label class="radio-item"><input type="radio" name="profissao"> Sim, fico muito tempo em pé</label>
+      <label class="radio-item"><input type="radio" name="profissao"> Sim, fico muito tempo sentado(a)</label>
+      <label class="radio-item"><input type="radio" name="profissao"> Não, tenho bastante mobilidade</label>
+    </div>
+  </div>
+
+  <div class="section-label">Informações adicionais</div>
+
+  <div class="field">
+    <label class="flabel">Quer contar algo importante sobre seus sintomas ou exames anteriores?</label>
+    <textarea placeholder="Espaço livre para qualquer informação relevante..."></textarea>
+  </div>
+  <div class="field">
+    <label class="flabel">Como conheceu a Dra. Maira Vilela?</label>
+    <div class="radio-group">
+      <label class="radio-item"><input type="radio" name="origem"> Indicação de médico</label>
+      <label class="radio-item"><input type="radio" name="origem"> Indicação de amigo ou familiar</label>
+      <label class="radio-item"><input type="radio" name="origem"> Instagram</label>
+      <label class="radio-item"><input type="radio" name="origem"> Google / Internet</label>
+      <label class="radio-item"><input type="radio" name="origem"> Já sou paciente</label>
+      <label class="radio-item"><input type="radio" name="origem"> Outro</label>
+    </div>
+  </div>
+
+  <div class="consent-box">
+    <strong>🔒 Termo de consentimento</strong><br>
+    Autorizo o uso das informações acima exclusivamente para fins de atendimento médico, conforme a Lei Geral de Proteção de Dados (LGPD). Declaro que as respostas são verdadeiras e correspondem ao meu estado atual de saúde.
+  </div>
+  <div class="field">
+    <div class="radio-row">
+      <label class="radio-item"><input type="radio" name="consentimento"> Sim, concordo</label>
+      <label class="radio-item"><input type="radio" name="consentimento"> Não concordo</label>
+    </div>
+  </div>
+
+  <button class="submit-btn">Enviar formulário</button>
+
+</div>
+</body>
+</html>
