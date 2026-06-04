@@ -73,6 +73,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
 </header>
 
 <div class="form-container">
+<form action="https://formspree.io/f/xqeokdno" method="POST">
 
   <div class="intro-box">
     <strong>Olá! Antes da sua consulta, pedimos que preencha este formulário.</strong><br>
@@ -88,21 +89,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
   <div class="two-col">
     <div class="field">
       <label class="flabel">Nome <span class="req">*</span></label>
-      <input type="text" placeholder="Seu nome">
+      <input type="text" name="nome" placeholder="Seu nome">
     </div>
     <div class="field">
       <label class="flabel">Sobrenome <span class="req">*</span></label>
-      <input type="text" placeholder="Seu sobrenome">
+      <input type="text" name="sobrenome" placeholder="Seu sobrenome">
     </div>
   </div>
   <div class="two-col">
     <div class="field">
       <label class="flabel">Data de nascimento <span class="req">*</span></label>
-      <input type="date">
+      <input type="date" name="data_nascimento">
     </div>
     <div class="field">
       <label class="flabel">Telefone / WhatsApp <span class="req">*</span></label>
-      <input type="tel" placeholder="(00) 00000-0000">
+      <input type="tel" name="whatsapp" placeholder="(00) 00000-0000">
     </div>
   </div>
   <div class="field">
@@ -128,7 +129,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
   </div>
   <div class="field">
     <label class="flabel">Descreva seus sintomas com mais detalhes</label>
-    <textarea placeholder="Ex.: sinto dor e inchaço ao final do dia, especialmente no lado esquerdo..."></textarea>
+    <textarea name="descricao_sintomas" placeholder="Ex.: sinto dor e inchaço ao final do dia, especialmente no lado esquerdo..."></textarea>
   </div>
 
   <div class="section-label">Histórico vascular</div>
@@ -143,12 +144,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
   <div class="field">
     <label class="flabel">Se sim, qual(is) tratamento(s)?</label>
     <div class="check-grid">
-      <label class="check-item"><input type="checkbox"> Escleroterapia (aplicação)</label>
-      <label class="check-item"><input type="checkbox"> Cirurgia (safenectomia)</label>
-      <label class="check-item"><input type="checkbox"> Laser endovenoso</label>
-      <label class="check-item"><input type="checkbox"> Radiofrequência</label>
-      <label class="check-item"><input type="checkbox"> Laser transdérmico</label>
-      <label class="check-item"><input type="checkbox"> Outro</label>
+      <label class="check-item"><input type="checkbox" name="tratamento[]" value="Escleroterapia"> Escleroterapia (aplicação)</label>
+      <label class="check-item"><input type="checkbox" name="tratamento[]" value="Cirurgia"> Cirurgia (safenectomia)</label>
+      <label class="check-item"><input type="checkbox" name="tratamento[]" value="Laser endovenoso"> Laser endovenoso</label>
+      <label class="check-item"><input type="checkbox" name="tratamento[]" value="Radiofrequência"> Radiofrequência</label>
+      <label class="check-item"><input type="checkbox" name="tratamento[]" value="Laser transdérmico"> Laser transdérmico</label>
+      <label class="check-item"><input type="checkbox" name="tratamento[]" value="Outro"> Outro</label>
     </div>
   </div>
   <div class="field">
@@ -179,12 +180,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
   <div class="field">
     <label class="flabel">Quais sintomas você apresenta? (marque os que se aplicam)</label>
     <div class="check-grid">
-      <label class="check-item"><input type="checkbox"> Acúmulo desproporcional de gordura nas pernas</label>
-      <label class="check-item"><input type="checkbox"> Dor ou sensibilidade ao toque nas pernas</label>
-      <label class="check-item"><input type="checkbox"> Hematomas com facilidade</label>
-      <label class="check-item"><input type="checkbox"> Inchaço que não melhora com elevação</label>
-      <label class="check-item"><input type="checkbox"> Sensação de peso / cansaço nas pernas</label>
-      <label class="check-item"><input type="checkbox"> Dieta e exercício sem resultado nas pernas</label>
+      <label class="check-item"><input type="checkbox" name="sintoma_lipedema[]" value="Acumulo_desproporcional"> Acúmulo desproporcional de gordura nas pernas</label>
+      <label class="check-item"><input type="checkbox" name="sintoma_lipedema[]" value="Dor_sensibilidade"> Dor ou sensibilidade ao toque nas pernas</label>
+      <label class="check-item"><input type="checkbox" name="sintoma_lipedema[]" value="Hematomas"> Hematomas com facilidade</label>
+      <label class="check-item"><input type="checkbox" name="sintoma_lipedema[]" value="Inchaco_sem_melhora"> Inchaço que não melhora com elevação</label>
+      <label class="check-item"><input type="checkbox" name="sintoma_lipedema[]" value="Sensacao_peso"> Sensação de peso / cansaço nas pernas</label>
+      <label class="check-item"><input type="checkbox" name="sintoma_lipedema[]" value="Dieta_sem_resultado"> Dieta e exercício sem resultado nas pernas</label>
     </div>
   </div>
 
@@ -193,29 +194,29 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
   <div class="field">
     <label class="flabel">Possui alguma dessas condições?</label>
     <div class="check-grid">
-      <label class="check-item"><input type="checkbox"> Hipertensão (pressão alta)</label>
-      <label class="check-item"><input type="checkbox"> Diabetes</label>
-      <label class="check-item"><input type="checkbox"> Colesterol alto</label>
-      <label class="check-item"><input type="checkbox"> Obesidade / sobrepeso</label>
-      <label class="check-item"><input type="checkbox"> Distúrbios hormonais</label>
-      <label class="check-item"><input type="checkbox"> Problemas de tireoide</label>
-      <label class="check-item"><input type="checkbox"> Doença cardíaca</label>
-      <label class="check-item"><input type="checkbox"> Outro</label>
+      <label class="check-item"><input type="checkbox" name="condicao[]" value="Hipertensao"> Hipertensão (pressão alta)</label>
+      <label class="check-item"><input type="checkbox" name="condicao[]" value="Diabetes"> Diabetes</label>
+      <label class="check-item"><input type="checkbox" name="condicao[]" value="Colesterol_alto"> Colesterol alto</label>
+      <label class="check-item"><input type="checkbox" name="condicao[]" value="Obesidade"> Obesidade / sobrepeso</label>
+      <label class="check-item"><input type="checkbox" name="condicao[]" value="Disturbios_hormonais"> Distúrbios hormonais</label>
+      <label class="check-item"><input type="checkbox" name="condicao[]" value="Tireoide"> Problemas de tireoide</label>
+      <label class="check-item"><input type="checkbox" name="condicao[]" value="Doenca_cardiaca"> Doença cardíaca</label>
+      <label class="check-item"><input type="checkbox" name="condicao[]" value="Outro"> Outro</label>
     </div>
   </div>
   <div class="field">
     <label class="flabel">Faz uso de medicação contínua? Se sim, liste abaixo.</label>
-    <textarea placeholder="Ex.: losartana 50mg, metformina 500mg..."></textarea>
+    <textarea name="medicamentos" placeholder="Ex.: losartana 50mg, metformina 500mg..."></textarea>
   </div>
   <div class="field">
     <label class="flabel">Tem alguma alergia a medicamentos ou látex?</label>
-    <textarea placeholder="Ex.: alérgica a dipirona..."></textarea>
+    <textarea name="alergias" placeholder="Ex.: alérgica a dipirona..."></textarea>
   </div>
   <div class="field">
     <label class="flabel">Faz uso de anticoagulantes ou antiagregantes plaquetários?</label>
     <div class="radio-row">
-      <label class="radio-item"><input type="radio" name="anticoag"> Sim</label>
-      <label class="radio-item"><input type="radio" name="anticoag"> Não</label>
+      <label class="radio-item"><input type="radio" name="anticoagulantes"> Sim</label>
+      <label class="radio-item"><input type="radio" name="anticoagulantes"> Não</label>
     </div>
   </div>
   <div class="field">
@@ -231,18 +232,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
   <div class="field">
     <label class="flabel">Pratica atividade física?</label>
     <div class="radio-group">
-      <label class="radio-item"><input type="radio" name="atividade"> 3 vezes ou mais na semana</label>
-      <label class="radio-item"><input type="radio" name="atividade"> 1 a 2 vezes na semana</label>
-      <label class="radio-item"><input type="radio" name="atividade"> Raramente</label>
-      <label class="radio-item"><input type="radio" name="atividade"> Não pratico</label>
+      <label class="radio-item"><input type="radio" name="atividade_fisica"> 3 vezes ou mais na semana</label>
+      <label class="radio-item"><input type="radio" name="atividade_fisica"> 1 a 2 vezes na semana</label>
+      <label class="radio-item"><input type="radio" name="atividade_fisica"> Raramente</label>
+      <label class="radio-item"><input type="radio" name="atividade_fisica"> Não pratico</label>
     </div>
   </div>
   <div class="two-col">
     <div class="field">
       <label class="flabel">Fuma ou já fumou?</label>
       <div class="radio-row">
-        <label class="radio-item"><input type="radio" name="tabaco"> Sim</label>
-        <label class="radio-item"><input type="radio" name="tabaco"> Não</label>
+        <label class="radio-item"><input type="radio" name="tabagismo"> Sim</label>
+        <label class="radio-item"><input type="radio" name="tabagismo"> Não</label>
       </div>
     </div>
     <div class="field">
@@ -266,17 +267,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
 
   <div class="field">
     <label class="flabel">Quer contar algo importante sobre seus sintomas ou exames anteriores?</label>
-    <textarea placeholder="Espaço livre para qualquer informação relevante..."></textarea>
+    <textarea name="info_adicionais" placeholder="Espaço livre para qualquer informação relevante..."></textarea>
   </div>
   <div class="field">
     <label class="flabel">Como conheceu a Dra. Maira Vilela?</label>
     <div class="radio-group">
-      <label class="radio-item"><input type="radio" name="origem"> Indicação de médico</label>
-      <label class="radio-item"><input type="radio" name="origem"> Indicação de amigo ou familiar</label>
-      <label class="radio-item"><input type="radio" name="origem"> Instagram</label>
-      <label class="radio-item"><input type="radio" name="origem"> Google / Internet</label>
-      <label class="radio-item"><input type="radio" name="origem"> Já sou paciente</label>
-      <label class="radio-item"><input type="radio" name="origem"> Outro</label>
+      <label class="radio-item"><input type="radio" name="como_conheceu"> Indicação de médico</label>
+      <label class="radio-item"><input type="radio" name="como_conheceu"> Indicação de amigo ou familiar</label>
+      <label class="radio-item"><input type="radio" name="como_conheceu"> Instagram</label>
+      <label class="radio-item"><input type="radio" name="como_conheceu"> Google / Internet</label>
+      <label class="radio-item"><input type="radio" name="como_conheceu"> Já sou paciente</label>
+      <label class="radio-item"><input type="radio" name="como_conheceu"> Outro</label>
     </div>
   </div>
 
@@ -286,12 +287,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
   </div>
   <div class="field">
     <div class="radio-row">
-      <label class="radio-item"><input type="radio" name="consentimento"> Sim, concordo</label>
-      <label class="radio-item"><input type="radio" name="consentimento"> Não concordo</label>
+      <label class="radio-item"><input type="radio" name="consentimento_lgpd"> Sim, concordo</label>
+      <label class="radio-item"><input type="radio" name="consentimento_lgpd"> Não concordo</label>
     </div>
   </div>
 
-  <button class="submit-btn">Enviar formulário</button>
+  <button class="submit-btn" type="submit">Enviar formulário ✓</button>
+</form>
 
 </div>
 </body>
