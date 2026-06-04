@@ -73,7 +73,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
 </header>
 
 <div class="form-container">
-<form action="https://formspree.io/f/xqeokdno" method="POST">
 
   <div class="intro-box">
     <strong>Olá! Antes da sua consulta, pedimos que preencha este formulário.</strong><br>
@@ -84,33 +83,35 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
     </div>
   </div>
 
+  <form action="https://formspree.io/f/xqeokdno" method="POST">
+
   <div class="section-label">Identificação</div>
 
   <div class="two-col">
     <div class="field">
       <label class="flabel">Nome <span class="req">*</span></label>
-      <input type="text" name="nome" placeholder="Seu nome">
+      <input type="text" name="Nome" placeholder="Seu nome" required>
     </div>
     <div class="field">
       <label class="flabel">Sobrenome <span class="req">*</span></label>
-      <input type="text" name="sobrenome" placeholder="Seu sobrenome">
+      <input type="text" name="Sobrenome" placeholder="Seu sobrenome" required>
     </div>
   </div>
   <div class="two-col">
     <div class="field">
       <label class="flabel">Data de nascimento <span class="req">*</span></label>
-      <input type="date" name="data_nascimento">
+      <input type="date" name="Data de nascimento" required>
     </div>
     <div class="field">
       <label class="flabel">Telefone / WhatsApp <span class="req">*</span></label>
-      <input type="tel" name="whatsapp" placeholder="(00) 00000-0000">
+      <input type="tel" name="Telefone / WhatsApp" placeholder="(00) 00000-0000" required>
     </div>
   </div>
   <div class="field">
     <label class="flabel">Sexo biológico <span class="req">*</span></label>
     <div class="radio-row">
-      <label class="radio-item"><input type="radio" name="sexo"> Feminino</label>
-      <label class="radio-item"><input type="radio" name="sexo"> Masculino</label>
+      <label class="radio-item"><input type="radio" name="Sexo biológico" value="Feminino" required> Feminino</label>
+      <label class="radio-item"><input type="radio" name="Sexo biológico" value="Masculino"> Masculino</label>
     </div>
   </div>
 
@@ -119,17 +120,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
   <div class="field">
     <label class="flabel">O que motivou sua consulta? <span class="req">*</span></label>
     <div class="radio-group">
-      <label class="radio-item"><input type="radio" name="queixa"> Varizes / veias aparentes nas pernas</label>
-      <label class="radio-item"><input type="radio" name="queixa"> Inchaço, peso ou dor nas pernas</label>
-      <label class="radio-item"><input type="radio" name="queixa"> Suspeita de lipedema</label>
-      <label class="radio-item"><input type="radio" name="queixa"> Úlcera ou ferida na perna</label>
-      <label class="radio-item"><input type="radio" name="queixa"> Check-up vascular / prevenção</label>
-      <label class="radio-item"><input type="radio" name="queixa"> Outro (especifique abaixo)</label>
+      <label class="radio-item"><input type="radio" name="Motivo da consulta" value="Varizes / veias aparentes nas pernas" required> Varizes / veias aparentes nas pernas</label>
+      <label class="radio-item"><input type="radio" name="Motivo da consulta" value="Inchaço, peso ou dor nas pernas"> Inchaço, peso ou dor nas pernas</label>
+      <label class="radio-item"><input type="radio" name="Motivo da consulta" value="Suspeita de lipedema"> Suspeita de lipedema</label>
+      <label class="radio-item"><input type="radio" name="Motivo da consulta" value="Úlcera ou ferida na perna"> Úlcera ou ferida na perna</label>
+      <label class="radio-item"><input type="radio" name="Motivo da consulta" value="Check-up vascular / prevenção"> Check-up vascular / prevenção</label>
+      <label class="radio-item"><input type="radio" name="Motivo da consulta" value="Outro"> Outro (especifique abaixo)</label>
     </div>
   </div>
   <div class="field">
     <label class="flabel">Descreva seus sintomas com mais detalhes</label>
-    <textarea name="descricao_sintomas" placeholder="Ex.: sinto dor e inchaço ao final do dia, especialmente no lado esquerdo..."></textarea>
+    <textarea name="Descrição dos sintomas" placeholder="Ex.: sinto dor e inchaço ao final do dia, especialmente no lado esquerdo..."></textarea>
   </div>
 
   <div class="section-label">Histórico vascular</div>
@@ -137,33 +138,33 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
   <div class="field">
     <label class="flabel">Já realizou algum tratamento de varizes anteriormente?</label>
     <div class="radio-row">
-      <label class="radio-item"><input type="radio" name="trat_varizes"> Sim</label>
-      <label class="radio-item"><input type="radio" name="trat_varizes"> Não</label>
+      <label class="radio-item"><input type="radio" name="Tratamento de varizes anterior" value="Sim"> Sim</label>
+      <label class="radio-item"><input type="radio" name="Tratamento de varizes anterior" value="Não"> Não</label>
     </div>
   </div>
   <div class="field">
     <label class="flabel">Se sim, qual(is) tratamento(s)?</label>
     <div class="check-grid">
-      <label class="check-item"><input type="checkbox" name="tratamento[]" value="Escleroterapia"> Escleroterapia (aplicação)</label>
-      <label class="check-item"><input type="checkbox" name="tratamento[]" value="Cirurgia"> Cirurgia (safenectomia)</label>
-      <label class="check-item"><input type="checkbox" name="tratamento[]" value="Laser endovenoso"> Laser endovenoso</label>
-      <label class="check-item"><input type="checkbox" name="tratamento[]" value="Radiofrequência"> Radiofrequência</label>
-      <label class="check-item"><input type="checkbox" name="tratamento[]" value="Laser transdérmico"> Laser transdérmico</label>
-      <label class="check-item"><input type="checkbox" name="tratamento[]" value="Outro"> Outro</label>
+      <label class="check-item"><input type="checkbox" name="Tratamentos realizados" value="Escleroterapia (aplicação)"> Escleroterapia (aplicação)</label>
+      <label class="check-item"><input type="checkbox" name="Tratamentos realizados" value="Cirurgia (safenectomia)"> Cirurgia (safenectomia)</label>
+      <label class="check-item"><input type="checkbox" name="Tratamentos realizados" value="Laser endovenoso"> Laser endovenoso</label>
+      <label class="check-item"><input type="checkbox" name="Tratamentos realizados" value="Radiofrequência"> Radiofrequência</label>
+      <label class="check-item"><input type="checkbox" name="Tratamentos realizados" value="Laser transdérmico"> Laser transdérmico</label>
+      <label class="check-item"><input type="checkbox" name="Tratamentos realizados" value="Outro"> Outro</label>
     </div>
   </div>
   <div class="field">
     <label class="flabel">Tem histórico familiar de varizes ou doenças vasculares?</label>
     <div class="radio-row">
-      <label class="radio-item"><input type="radio" name="hist_fam"> Sim</label>
-      <label class="radio-item"><input type="radio" name="hist_fam"> Não</label>
+      <label class="radio-item"><input type="radio" name="Histórico familiar vascular" value="Sim"> Sim</label>
+      <label class="radio-item"><input type="radio" name="Histórico familiar vascular" value="Não"> Não</label>
     </div>
   </div>
   <div class="field">
     <label class="flabel">Já teve trombose venosa profunda (TVP) ou embolia pulmonar?</label>
     <div class="radio-row">
-      <label class="radio-item"><input type="radio" name="tvp"> Sim</label>
-      <label class="radio-item"><input type="radio" name="tvp"> Não</label>
+      <label class="radio-item"><input type="radio" name="Trombose venosa ou embolia pulmonar" value="Sim"> Sim</label>
+      <label class="radio-item"><input type="radio" name="Trombose venosa ou embolia pulmonar" value="Não"> Não</label>
     </div>
   </div>
 
@@ -172,58 +173,58 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
   <div class="field">
     <label class="flabel">Você suspeita ou já recebeu diagnóstico de lipedema?</label>
     <div class="radio-group">
-      <label class="radio-item"><input type="radio" name="lipedema"> Sim, tenho diagnóstico</label>
-      <label class="radio-item"><input type="radio" name="lipedema"> Tenho suspeita, mas sem diagnóstico</label>
-      <label class="radio-item"><input type="radio" name="lipedema"> Não</label>
+      <label class="radio-item"><input type="radio" name="Diagnóstico de lipedema" value="Sim, tenho diagnóstico"> Sim, tenho diagnóstico</label>
+      <label class="radio-item"><input type="radio" name="Diagnóstico de lipedema" value="Tenho suspeita, mas sem diagnóstico"> Tenho suspeita, mas sem diagnóstico</label>
+      <label class="radio-item"><input type="radio" name="Diagnóstico de lipedema" value="Não"> Não</label>
     </div>
   </div>
   <div class="field">
-    <label class="flabel">Quais sintomas você apresenta? (marque os que se aplicam)</label>
+    <label class="flabel">Quais sintomas de lipedema você apresenta? (marque os que se aplicam)</label>
     <div class="check-grid">
-      <label class="check-item"><input type="checkbox" name="sintoma_lipedema[]" value="Acumulo_desproporcional"> Acúmulo desproporcional de gordura nas pernas</label>
-      <label class="check-item"><input type="checkbox" name="sintoma_lipedema[]" value="Dor_sensibilidade"> Dor ou sensibilidade ao toque nas pernas</label>
-      <label class="check-item"><input type="checkbox" name="sintoma_lipedema[]" value="Hematomas"> Hematomas com facilidade</label>
-      <label class="check-item"><input type="checkbox" name="sintoma_lipedema[]" value="Inchaco_sem_melhora"> Inchaço que não melhora com elevação</label>
-      <label class="check-item"><input type="checkbox" name="sintoma_lipedema[]" value="Sensacao_peso"> Sensação de peso / cansaço nas pernas</label>
-      <label class="check-item"><input type="checkbox" name="sintoma_lipedema[]" value="Dieta_sem_resultado"> Dieta e exercício sem resultado nas pernas</label>
+      <label class="check-item"><input type="checkbox" name="Sintomas de lipedema" value="Acúmulo desproporcional de gordura nas pernas"> Acúmulo desproporcional de gordura nas pernas</label>
+      <label class="check-item"><input type="checkbox" name="Sintomas de lipedema" value="Dor ou sensibilidade ao toque nas pernas"> Dor ou sensibilidade ao toque nas pernas</label>
+      <label class="check-item"><input type="checkbox" name="Sintomas de lipedema" value="Hematomas com facilidade"> Hematomas com facilidade</label>
+      <label class="check-item"><input type="checkbox" name="Sintomas de lipedema" value="Inchaço que não melhora com elevação"> Inchaço que não melhora com elevação</label>
+      <label class="check-item"><input type="checkbox" name="Sintomas de lipedema" value="Sensação de peso / cansaço nas pernas"> Sensação de peso / cansaço nas pernas</label>
+      <label class="check-item"><input type="checkbox" name="Sintomas de lipedema" value="Dieta e exercício sem resultado nas pernas"> Dieta e exercício sem resultado nas pernas</label>
     </div>
   </div>
 
   <div class="section-label">Saúde geral</div>
 
   <div class="field">
-    <label class="flabel">Possui alguma dessas condições?</label>
+    <label class="flabel">Possui alguma dessas condições? (marque os que se aplicam)</label>
     <div class="check-grid">
-      <label class="check-item"><input type="checkbox" name="condicao[]" value="Hipertensao"> Hipertensão (pressão alta)</label>
-      <label class="check-item"><input type="checkbox" name="condicao[]" value="Diabetes"> Diabetes</label>
-      <label class="check-item"><input type="checkbox" name="condicao[]" value="Colesterol_alto"> Colesterol alto</label>
-      <label class="check-item"><input type="checkbox" name="condicao[]" value="Obesidade"> Obesidade / sobrepeso</label>
-      <label class="check-item"><input type="checkbox" name="condicao[]" value="Disturbios_hormonais"> Distúrbios hormonais</label>
-      <label class="check-item"><input type="checkbox" name="condicao[]" value="Tireoide"> Problemas de tireoide</label>
-      <label class="check-item"><input type="checkbox" name="condicao[]" value="Doenca_cardiaca"> Doença cardíaca</label>
-      <label class="check-item"><input type="checkbox" name="condicao[]" value="Outro"> Outro</label>
+      <label class="check-item"><input type="checkbox" name="Condições de saúde" value="Hipertensão (pressão alta)"> Hipertensão (pressão alta)</label>
+      <label class="check-item"><input type="checkbox" name="Condições de saúde" value="Diabetes"> Diabetes</label>
+      <label class="check-item"><input type="checkbox" name="Condições de saúde" value="Colesterol alto"> Colesterol alto</label>
+      <label class="check-item"><input type="checkbox" name="Condições de saúde" value="Obesidade / sobrepeso"> Obesidade / sobrepeso</label>
+      <label class="check-item"><input type="checkbox" name="Condições de saúde" value="Distúrbios hormonais"> Distúrbios hormonais</label>
+      <label class="check-item"><input type="checkbox" name="Condições de saúde" value="Problemas de tireoide"> Problemas de tireoide</label>
+      <label class="check-item"><input type="checkbox" name="Condições de saúde" value="Doença cardíaca"> Doença cardíaca</label>
+      <label class="check-item"><input type="checkbox" name="Condições de saúde" value="Outro"> Outro</label>
     </div>
   </div>
   <div class="field">
     <label class="flabel">Faz uso de medicação contínua? Se sim, liste abaixo.</label>
-    <textarea name="medicamentos" placeholder="Ex.: losartana 50mg, metformina 500mg..."></textarea>
+    <textarea name="Medicamentos de uso contínuo" placeholder="Ex.: losartana 50mg, metformina 500mg..."></textarea>
   </div>
   <div class="field">
     <label class="flabel">Tem alguma alergia a medicamentos ou látex?</label>
-    <textarea name="alergias" placeholder="Ex.: alérgica a dipirona..."></textarea>
+    <textarea name="Alergias" placeholder="Ex.: alérgica a dipirona..."></textarea>
   </div>
   <div class="field">
     <label class="flabel">Faz uso de anticoagulantes ou antiagregantes plaquetários?</label>
     <div class="radio-row">
-      <label class="radio-item"><input type="radio" name="anticoagulantes"> Sim</label>
-      <label class="radio-item"><input type="radio" name="anticoagulantes"> Não</label>
+      <label class="radio-item"><input type="radio" name="Uso de anticoagulantes" value="Sim"> Sim</label>
+      <label class="radio-item"><input type="radio" name="Uso de anticoagulantes" value="Não"> Não</label>
     </div>
   </div>
   <div class="field">
     <label class="flabel">Faz uso de anticoncepcionais hormonais ou reposição hormonal?</label>
     <div class="radio-row">
-      <label class="radio-item"><input type="radio" name="hormonio"> Sim</label>
-      <label class="radio-item"><input type="radio" name="hormonio"> Não</label>
+      <label class="radio-item"><input type="radio" name="Uso de hormônios" value="Sim"> Sim</label>
+      <label class="radio-item"><input type="radio" name="Uso de hormônios" value="Não"> Não</label>
     </div>
   </div>
 
@@ -232,34 +233,34 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
   <div class="field">
     <label class="flabel">Pratica atividade física?</label>
     <div class="radio-group">
-      <label class="radio-item"><input type="radio" name="atividade_fisica"> 3 vezes ou mais na semana</label>
-      <label class="radio-item"><input type="radio" name="atividade_fisica"> 1 a 2 vezes na semana</label>
-      <label class="radio-item"><input type="radio" name="atividade_fisica"> Raramente</label>
-      <label class="radio-item"><input type="radio" name="atividade_fisica"> Não pratico</label>
+      <label class="radio-item"><input type="radio" name="Atividade física" value="3 vezes ou mais na semana"> 3 vezes ou mais na semana</label>
+      <label class="radio-item"><input type="radio" name="Atividade física" value="1 a 2 vezes na semana"> 1 a 2 vezes na semana</label>
+      <label class="radio-item"><input type="radio" name="Atividade física" value="Raramente"> Raramente</label>
+      <label class="radio-item"><input type="radio" name="Atividade física" value="Não pratico"> Não pratico</label>
     </div>
   </div>
   <div class="two-col">
     <div class="field">
       <label class="flabel">Fuma ou já fumou?</label>
       <div class="radio-row">
-        <label class="radio-item"><input type="radio" name="tabagismo"> Sim</label>
-        <label class="radio-item"><input type="radio" name="tabagismo"> Não</label>
+        <label class="radio-item"><input type="radio" name="Tabagismo" value="Sim"> Sim</label>
+        <label class="radio-item"><input type="radio" name="Tabagismo" value="Não"> Não</label>
       </div>
     </div>
     <div class="field">
       <label class="flabel">Consome bebidas alcoólicas?</label>
       <div class="radio-row">
-        <label class="radio-item"><input type="radio" name="alcool"> Sim</label>
-        <label class="radio-item"><input type="radio" name="alcool"> Não</label>
+        <label class="radio-item"><input type="radio" name="Consumo de álcool" value="Sim"> Sim</label>
+        <label class="radio-item"><input type="radio" name="Consumo de álcool" value="Não"> Não</label>
       </div>
     </div>
   </div>
   <div class="field">
     <label class="flabel">Sua profissão exige ficar muito tempo em pé ou sentado(a)?</label>
     <div class="radio-group">
-      <label class="radio-item"><input type="radio" name="profissao"> Sim, fico muito tempo em pé</label>
-      <label class="radio-item"><input type="radio" name="profissao"> Sim, fico muito tempo sentado(a)</label>
-      <label class="radio-item"><input type="radio" name="profissao"> Não, tenho bastante mobilidade</label>
+      <label class="radio-item"><input type="radio" name="Postura profissional" value="Sim, fico muito tempo em pé"> Sim, fico muito tempo em pé</label>
+      <label class="radio-item"><input type="radio" name="Postura profissional" value="Sim, fico muito tempo sentado(a)"> Sim, fico muito tempo sentado(a)</label>
+      <label class="radio-item"><input type="radio" name="Postura profissional" value="Não, tenho bastante mobilidade"> Não, tenho bastante mobilidade</label>
     </div>
   </div>
 
@@ -267,17 +268,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
 
   <div class="field">
     <label class="flabel">Quer contar algo importante sobre seus sintomas ou exames anteriores?</label>
-    <textarea name="info_adicionais" placeholder="Espaço livre para qualquer informação relevante..."></textarea>
+    <textarea name="Informações adicionais sobre sintomas ou exames" placeholder="Espaço livre para qualquer informação relevante..."></textarea>
   </div>
   <div class="field">
     <label class="flabel">Como conheceu a Dra. Maira Vilela?</label>
     <div class="radio-group">
-      <label class="radio-item"><input type="radio" name="como_conheceu"> Indicação de médico</label>
-      <label class="radio-item"><input type="radio" name="como_conheceu"> Indicação de amigo ou familiar</label>
-      <label class="radio-item"><input type="radio" name="como_conheceu"> Instagram</label>
-      <label class="radio-item"><input type="radio" name="como_conheceu"> Google / Internet</label>
-      <label class="radio-item"><input type="radio" name="como_conheceu"> Já sou paciente</label>
-      <label class="radio-item"><input type="radio" name="como_conheceu"> Outro</label>
+      <label class="radio-item"><input type="radio" name="Como conheceu a Dra. Maira" value="Indicação de médico"> Indicação de médico</label>
+      <label class="radio-item"><input type="radio" name="Como conheceu a Dra. Maira" value="Indicação de amigo ou familiar"> Indicação de amigo ou familiar</label>
+      <label class="radio-item"><input type="radio" name="Como conheceu a Dra. Maira" value="Instagram"> Instagram</label>
+      <label class="radio-item"><input type="radio" name="Como conheceu a Dra. Maira" value="Google / Internet"> Google / Internet</label>
+      <label class="radio-item"><input type="radio" name="Como conheceu a Dra. Maira" value="Já sou paciente"> Já sou paciente</label>
+      <label class="radio-item"><input type="radio" name="Como conheceu a Dra. Maira" value="Outro"> Outro</label>
     </div>
   </div>
 
@@ -287,13 +288,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg2);color:var(--text);mi
   </div>
   <div class="field">
     <div class="radio-row">
-      <label class="radio-item"><input type="radio" name="consentimento_lgpd"> Sim, concordo</label>
-      <label class="radio-item"><input type="radio" name="consentimento_lgpd"> Não concordo</label>
+      <label class="radio-item"><input type="radio" name="Consentimento LGPD" value="Sim, concordo" required> Sim, concordo</label>
+      <label class="radio-item"><input type="radio" name="Consentimento LGPD" value="Não concordo"> Não concordo</label>
     </div>
   </div>
 
-  <button class="submit-btn" type="submit">Enviar formulário ✓</button>
-</form>
+  <button class="submit-btn" type="submit">Enviar formulário</button>
+
+  </form>
 
 </div>
 </body>
