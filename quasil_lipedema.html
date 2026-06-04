@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QUASIL – Avaliação de Lipedema | Dra. Maíra Vilela</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--wine:#5E1023;--gold:#9B7548;--gold-light:#c4a06e;--cream:#FBF8F3;--cream-dark:#f0ebe2;--text:#2a2a2a;--text-light:#666;--border:#ddd5c8}
+body{font-family:"Jost",sans-serif;background:var(--cream);color:var(--text);min-height:100vh}
+.header{background:var(--wine);padding:28px 24px 22px;display:flex;align-items:center;gap:18px}
+.header img{height:64px;width:auto;filter:brightness(0) invert(1);opacity:.92}
+.header-text{color:#fff}
+.header-text h1{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:500;letter-spacing:.5px;line-height:1.2}
+.header-text p{font-size:12px;font-weight:300;color:rgba(255,255,255,.75);margin-top:3px;letter-spacing:1.2px;text-transform:uppercase}
+.gold-line{height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold))}
+.intro{background:white;border-bottom:1px solid var(--border);padding:20px 24px}
+.intro h2{font-family:"Cormorant Garamond",serif;font-size:19px;font-weight:500;color:var(--wine);margin-bottom:6px}
+.intro p{font-size:13px;color:var(--text-light);line-height:1.6}
+.patient-section{background:white;margin:16px 16px 0;border-radius:10px;border:1px solid var(--border);overflow:hidden}
+.section-header{background:var(--wine);padding:10px 16px;color:white;font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase}
+.patient-fields{padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.patient-fields .full{grid-column:1/-1}
+.field-label{font-size:10px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.field-input{width:100%;border:none;border-bottom:1.5px solid var(--border);background:transparent;font-family:"Jost",sans-serif;font-size:14px;color:var(--text);padding:4px 0;outline:none}
+.field-input:focus{border-bottom-color:var(--wine)}
+.date-badge{margin:12px 16px 0;background:var(--cream-dark);border:1px solid var(--border);border-radius:8px;padding:8px 14px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-light)}
+.date-badge strong{color:var(--wine);font-weight:500}
+.questions-section{background:white;margin:16px 16px 0;border-radius:10px;border:1px solid var(--border);overflow:hidden}
+.questions-intro{padding:12px 16px;background:var(--cream-dark);border-bottom:1px solid var(--border);font-size:12px;color:var(--text-light);line-height:1.5}
+.questions-intro em{color:var(--wine);font-style:normal;font-weight:500}
+.question-item{padding:16px;border-bottom:1px solid var(--cream-dark)}
+.question-item:last-child{border-bottom:none}
+.question-item.inverted{background:#fdf9f5}
+.question-text{font-size:14px;line-height:1.5;color:var(--text);margin-bottom:12px}
+.q-num{font-size:11px;font-weight:500;color:var(--gold);letter-spacing:.5px;margin-right:4px}
+.inverted-badge{font-size:9px;background:#fff0d4;color:#8B6914;border:1px solid #d4a843;border-radius:4px;padding:1px 5px;margin-left:6px;vertical-align:middle;font-weight:500}
+.slider-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--text-light);margin-bottom:4px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;background:var(--cream-dark);border-radius:2px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:var(--wine);border:3px solid white;box-shadow:0 1px 4px rgba(94,16,35,.35);cursor:pointer}
+.inverted input[type=range]::-webkit-slider-thumb{background:var(--gold)}
+.score-display{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--wine);color:white;font-size:14px;font-weight:500;margin-top:8px;float:right}
+.inverted .score-display{background:var(--gold)}
+.result-section{margin:16px 16px 0;border-radius:10px;border:2px solid var(--wine);overflow:hidden}
+.result-header{background:var(--wine);padding:12px 16px;color:white;font-family:"Cormorant Garamond",serif;font-size:17px;font-weight:500}
+.result-body{background:white;padding:16px}
+.total-score{text-align:center;padding:16px 0 12px}
+.total-number{font-family:"Cormorant Garamond",serif;font-size:64px;font-weight:600;color:var(--wine);line-height:1}
+.total-max{font-size:18px;color:var(--text-light);margin-left:2px}
+.total-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-top:4px}
+.severity-bar{margin:12px 0;height:8px;background:var(--cream-dark);border-radius:4px;overflow:hidden}
+.severity-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#4CAF50,#FFC107,#FF5722,#8B0000);transition:width .5s ease}
+.severity-badge{display:block;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:500;margin:8px auto;text-align:center;width:fit-content}
+.breakdown{margin-top:14px;border-top:1px solid var(--border);padding-top:12px}
+.breakdown-title{font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.breakdown-item{display:flex;justify-content:space-between;font-size:12px;color:var(--text-light);padding:3px 0}
+.breakdown-val{font-weight:500;color:var(--wine)}
+.send-section{margin:16px 16px 0;background:white;border-radius:10px;border:1px solid var(--border);padding:16px}
+.send-note{font-size:12px;color:var(--text-light);line-height:1.5;margin-bottom:14px}
+.btn-whatsapp{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px;background:#25D366;color:white;border:none;border-radius:8px;font-family:"Jost",sans-serif;font-size:15px;font-weight:500;cursor:pointer;margin-bottom:10px}
+.btn-copy{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:11px;background:transparent;color:var(--wine);border:1.5px solid var(--wine);border-radius:8px;font-family:"Jost",sans-serif;font-size:14px;font-weight:500;cursor:pointer}
+.footer{margin:20px 16px 32px;text-align:center;font-size:11px;color:var(--text-light);line-height:1.6}
+.footer strong{color:var(--wine);font-weight:500}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--wine);color:white;padding:10px 20px;border-radius:20px;font-size:13px;transition:transform .3s;z-index:999}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<header class="header">
+  <img src="data:image/png;base64,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" alt="Logo">
+  <div class="header-text"><h1>Dra. Maíra Vilela</h1><p>Cirurgia Vascular · Lipedema</p></div>
+</header>
+<div class="gold-line"></div>
+<div class="intro"><h2>Questionário QUASIL</h2><p>Avaliação Sintomática do Lipedema — responda com base em como você se sente hoje, atribuindo uma nota de 0 a 10 para cada sintoma.</p></div>
+<div class="patient-section"><div class="section-header">Identificação da paciente</div>
+<div class="patient-fields">
+  <div class="full"><div class="field-label">Nome completo</div><input class="field-input" type="text" id="p-nome" placeholder="Seu nome"></div>
+  <div><div class="field-label">Data de nascimento</div><input class="field-input" type="date" id="p-nasc"></div>
+  <div><div class="field-label">WhatsApp</div><input class="field-input" type="tel" id="p-fone" placeholder="(00) 00000-0000"></div>
+</div></div>
+<div class="date-badge"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Data de avaliação: <strong id="data-hoje"></strong></div>
+<div class="questions-section">
+<div class="section-header">Sintomas</div>
+<div class="questions-intro">Gradue cada sintoma de <em>0 (não sinto)</em> a <em>10 (sinto muito)</em>. Se o critério for variável, selecione a intensidade máxima que você sente.</div>
+<div class="question-item">
+  <div class="question-text"><span class="q-num">01.</span> As áreas afetadas são dolorosas?</div>
+  <div class="slider-labels"><span>0 – Não</span><span>10 – Muito</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q1" oninput="upd('q1')">
+  <span class="score-display" id="dq1">0</span>
+</div>
+<div class="question-item">
+  <div class="question-text"><span class="q-num">02.</span> As áreas afetadas são sensíveis ao toque ou à pressão?</div>
+  <div class="slider-labels"><span>0 – Não</span><span>10 – Muito</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q2" oninput="upd('q2')">
+  <span class="score-display" id="dq2">0</span>
+</div>
+<div class="question-item">
+  <div class="question-text"><span class="q-num">03.</span> Você tende a ter manchas roxas (hematomas) facilmente e com frequência nas pernas?</div>
+  <div class="slider-labels"><span>0 – Não</span><span>10 – Muito</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q3" oninput="upd('q3')">
+  <span class="score-display" id="dq3">0</span>
+</div>
+<div class="question-item">
+  <div class="question-text"><span class="q-num">04.</span> Você sente pressão ou tensão nas pernas?</div>
+  <div class="slider-labels"><span>0 – Não</span><span>10 – Muito</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q4" oninput="upd('q4')">
+  <span class="score-display" id="dq4">0</span>
+</div>
+<div class="question-item">
+  <div class="question-text"><span class="q-num">05.</span> Sente as pernas quentes ou com sensação de queimação?</div>
+  <div class="slider-labels"><span>0 – Não</span><span>10 – Muito</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q5" oninput="upd('q5')">
+  <span class="score-display" id="dq5">0</span>
+</div>
+<div class="question-item">
+  <div class="question-text"><span class="q-num">06.</span> Sente suas pernas frias?</div>
+  <div class="slider-labels"><span>0 – Não</span><span>10 – Muito</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q6" oninput="upd('q6')">
+  <span class="score-display" id="dq6">0</span>
+</div>
+<div class="question-item">
+  <div class="question-text"><span class="q-num">07.</span> Tem câimbras musculares?</div>
+  <div class="slider-labels"><span>0 – Nunca</span><span>10 – Muito frequente</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q7" oninput="upd('q7')">
+  <span class="score-display" id="dq7">0</span>
+</div>
+<div class="question-item">
+  <div class="question-text"><span class="q-num">08.</span> Sente peso nas pernas?</div>
+  <div class="slider-labels"><span>0 – Não</span><span>10 – Muito</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q8" oninput="upd('q8')">
+  <span class="score-display" id="dq8">0</span>
+</div>
+<div class="question-item">
+  <div class="question-text"><span class="q-num">09.</span> Sente cansaço nas pernas?</div>
+  <div class="slider-labels"><span>0 – Não</span><span>10 – Muito</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q9" oninput="upd('q9')">
+  <span class="score-display" id="dq9">0</span>
+</div>
+<div class="question-item">
+  <div class="question-text"><span class="q-num">10.</span> Sente inchaço nas pernas?</div>
+  <div class="slider-labels"><span>0 – Não</span><span>10 – Muito</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q10" oninput="upd('q10')">
+  <span class="score-display" id="dq10">0</span>
+</div>
+<div class="question-item">
+  <div class="question-text"><span class="q-num">11.</span> Tem irritações na pele?</div>
+  <div class="slider-labels"><span>0 – Não</span><span>10 – Muita</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q11" oninput="upd('q11')">
+  <span class="score-display" id="dq11">0</span>
+</div>
+<div class="question-item">
+  <div class="question-text"><span class="q-num">12.</span> Sente coceira?</div>
+  <div class="slider-labels"><span>0 – Não</span><span>10 – Muita</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q12" oninput="upd('q12')">
+  <span class="score-display" id="dq12">0</span>
+</div>
+<div class="question-item">
+  <div class="question-text"><span class="q-num">13.</span> Tem dificuldade para caminhar ou alguma limitação de movimento?</div>
+  <div class="slider-labels"><span>0 – Não</span><span>10 – Gravemente</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q13" oninput="upd('q13')">
+  <span class="score-display" id="dq13">0</span>
+</div>
+<div class="question-item">
+  <div class="question-text"><span class="q-num">14.</span> Como a condição afeta sua qualidade de vida?</div>
+  <div class="slider-labels"><span>0 – Nada</span><span>10 – Gravemente</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q14" oninput="upd('q14')">
+  <span class="score-display" id="dq14">0</span>
+</div>
+<div class="question-item inverted">
+  <div class="question-text"><span class="q-num">15.</span> Está satisfeita com a aparência das pernas?<span class="inverted-badge">atenção: escala invertida</span></div>
+  <div class="slider-labels"><span>0 – Muito satisfeita</span><span>10 – Insatisfeita</span></div>
+  <input type="range" min="0" max="10" step="1" value="0" id="q15" oninput="upd('q15')">
+  <span class="score-display" id="dq15">0</span>
+</div>
+</div>
+<div class="result-section">
+<div class="result-header">Resultado da avaliação</div>
+<div class="result-body">
+  <div class="total-score"><div class="total-number" id="total">0<span class="total-max">/150</span></div><div class="total-label">pontuação total</div></div>
+  <div class="severity-bar"><div class="severity-fill" id="sev-fill" style="width:0%"></div></div>
+  <div class="severity-badge" id="sev-badge"></div>
+  <div class="breakdown"><div class="breakdown-title">Detalhamento</div><div id="breakdown"></div></div>
+</div></div>
+<div class="send-section">
+<p class="send-note">Ao finalizar, envie seu resultado para a Dra. Maíra pelo WhatsApp ou copie o texto para colar em outra mensagem.</p>
+<button class="btn-whatsapp" onclick="sendWA()">📲 Enviar para a Dra. Maíra pelo WhatsApp</button>
+<button class="btn-copy" onclick="copyRes()">📋 Copiar resultado</button>
+</div>
+<div class="footer"><strong>Dra. Maíra Vilela</strong> · Cirurgia Vascular<br>CRM 024085/DF · mairavilela85@gmail.com</div>
+<div class="toast" id="toast">Copiado!</div>
+<script>
+var QT = ["As áreas afetadas são dolorosas?","As áreas afetadas são sensíveis ao toque ou à pressão?","Você tende a ter manchas roxas (hematomas) facilmente e com frequência nas pernas?","Você sente pressão ou tensão nas pernas?","Sente as pernas quentes ou com sensação de queimação?","Sente suas pernas frias?","Tem câimbras musculares?","Sente peso nas pernas?","Sente cansaço nas pernas?","Sente inchaço nas pernas?","Tem irritações na pele?","Sente coceira?","Tem dificuldade para caminhar ou alguma limitação de movimento?","Como a condição afeta sua qualidade de vida?","Está satisfeita com a aparência das pernas?"];
+var GROUPS = [
+  {name:"Dor e sensibilidade",ids:["q1","q2"]},
+  {name:"Circulação e temperatura",ids:["q3","q4","q5","q6","q7"]},
+  {name:"Peso, cansaço e inchaço",ids:["q8","q9","q10"]},
+  {name:"Pele",ids:["q11","q12"]},
+  {name:"Funcionalidade e qualidade de vida",ids:["q13","q14"]},
+  {name:"Autopercepção",ids:["q15"]}
+];
+
+
+function getScore(id) { return parseInt(document.getElementById(id).value)||0; }
+
+function calcTotal() {
+  var t=0;
+  for(var i=1;i<=15;i++){ t+=getScore("q"+i); }
+  return t;
+}
+
+function getSev(t) {
+  if(t<=30)  return {label:"Sintomas leves",       c:"#4CAF50",bg:"#E8F5E9",tc:"#1B5E20"};
+  if(t<=70)  return {label:"Sintomas moderados",   c:"#FFA000",bg:"#FFF8E1",tc:"#E65100"};
+  if(t<=110) return {label:"Sintomas intensos",    c:"#F44336",bg:"#FFEBEE",tc:"#B71C1C"};
+  return         {label:"Sintomas muito intensos", c:"#8B0000",bg:"#F8E0E0",tc:"#5E0000"};
+}
+
+function upd(id) {
+  document.getElementById("d"+id).textContent = document.getElementById(id).value;
+  var t = calcTotal();
+  document.getElementById("total").innerHTML = t + "<span class=\"total-max\">/150</span>";
+  document.getElementById("sev-fill").style.width = (t/150*100)+"%";
+  var s = getSev(t);
+  var b = document.getElementById("sev-badge");
+  b.textContent = s.label;
+  b.style.background = s.bg;
+  b.style.color = s.tc;
+  b.style.border = "1.5px solid "+s.c;
+  var bl = document.getElementById("breakdown");
+  bl.innerHTML = GROUPS.map(function(g){
+    var gt=0; g.ids.forEach(function(id){ gt+=getScore(id); });
+    return "<div class=\"breakdown-item\"><span>"+g.name+"</span><span class=\"breakdown-val\">"+gt+"/"+(g.ids.length*10)+"</span></div>";
+  }).join("");
+}
+
+function getDateBR() {
+  return new Date().toLocaleDateString("pt-BR",{day:"2-digit",month:"long",year:"numeric"});
+}
+
+function buildMsg() {
+  var nome = document.getElementById("p-nome").value||"(não informado)";
+  var fone = document.getElementById("p-fone").value||"(não informado)";
+  var nasc = document.getElementById("p-nasc").value;
+  var nascFmt = nasc ? new Date(nasc+"T00:00:00").toLocaleDateString("pt-BR") : "(não informado)";
+  var t = calcTotal();
+  var s = getSev(t);
+  var msg = "QUASIL – Avaliação Sintomática do Lipedema\n";
+  msg += "——————————————————\n";
+  msg += "Paciente: "+nome+"\n";
+  msg += "Nasc.: "+nascFmt+"\n";
+  msg += "Fone: "+fone+"\n";
+  msg += "Data: "+getDateBR()+"\n";
+  msg += "——————————————————\n";
+  msg += "PONTUAÇÃO TOTAL: "+t+"/150\n";
+  msg += "Classificação: "+s.label+"\n";
+  msg += "——————————————————\n";
+  for(var i=0;i<QT.length;i++){
+    var txt = QT[i].length>45 ? QT[i].substring(0,45)+"..." : QT[i];
+    msg += String(i+1).padStart(2,"0")+". "+txt+" → "+getScore("q"+(i+1))+"\n";
+  }
+  msg += "——————————————————\n";
+  GROUPS.forEach(function(g){
+    var gt=0; g.ids.forEach(function(id){ gt+=getScore(id); });
+    msg += g.name+": "+gt+"/"+(g.ids.length*10)+"\n";
+  });
+  return msg;
+}
+
+function sendWA() {
+  var nome = document.getElementById("p-nome").value;
+  if(!nome){ alert("Por favor, preencha seu nome antes de enviar."); return; }
+  window.open("https://wa.me/5561981127726?text="+encodeURIComponent(buildMsg()),"_blank");
+}
+
+function copyRes() {
+  var t = buildMsg();
+  if(navigator.clipboard){ navigator.clipboard.writeText(t).then(showToast); }
+  else { var ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); document.body.removeChild(ta); showToast(); }
+}
+
+function showToast() {
+  var el=document.getElementById("toast");
+  el.classList.add("show");
+  setTimeout(function(){ el.classList.remove("show"); },2500);
+}
+
+document.getElementById("data-hoje").textContent = getDateBR();
+</script>
+</body>
+</html>
